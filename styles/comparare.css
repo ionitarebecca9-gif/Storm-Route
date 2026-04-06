@@ -1,0 +1,88 @@
+.compare-inputs{
+    background: rgba(255,255,255,0.03);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.compare-row{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+/* companiile a vs b */
+.c-card{
+    flex: 1;
+    background: rgba(15,23,42,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.c-blue{
+    border-color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.c-orange{
+    border-color: #f97316;
+    background: rgba(249,115,22,0.1);
+}
+
+.c-val { 
+    font-family: 'Oswald'; 
+    font-size: 1.4rem; 
+    font-weight: bold; 
+    color: white; 
+}
+
+.c-val-sm { 
+    font-family: 'Inter'; 
+    font-size: 0.9rem; 
+    font-weight: bold; 
+    color: white; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.c-label { 
+    font-size: 0.7rem; 
+    color: #94a3b8; 
+    text-transform: uppercase; 
+    margin-top: 2px; 
+}
+/* lista de sugestii */
+.suggestion-list { 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    right: 0; 
+    background: #0f172a; 
+    border: 1px solid var(--border-glass); 
+    border-radius: 0 0 6px 6px; 
+    max-height: 200px; 
+    overflow-y: auto; 
+    z-index: 1000; 
+    display: none; 
+}
+
+.suggestion-list:not(:empty) { 
+    display: block; 
+    border-top: none; 
+}
+
+.suggestion-item { 
+    padding: 10px; 
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
+    cursor: pointer; 
+    font-size: 0.85rem; 
+    color: var(--text-muted); 
+    transition: 0.2s; 
+}
+
+.suggestion-item:hover { 
+    background: rgba(56, 189, 248, 0.1); 
+    color: white; 
+}

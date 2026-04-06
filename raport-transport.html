@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storm Route - Raport Transport</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles/report.css">
+</head>
+<body>
+    <div class="report-container">
+        <header>
+            <div class="logo"><i class="fa-solid fa-bolt"></i> STORM ROUTE</div>
+            <div class="report-meta">
+                <div>FIȘĂ INDIVIDUALĂ</div>
+                <div id="gen-date">Generat: --</div>
+            </div>
+        </header>
+        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <h1 class="transport-id" id="t-id">AVIZ ---</h1>
+            <span id="risk-badge" class="risk-badge" style="background:#94a3b8;">CALCULARE...</span>
+        </div>
+        <div class="grid-info">
+            <div class="info-box">
+                <div style="margin-bottom: 15px;">
+                    <div class="info-label">Dată & Oră Înregistrare</div>
+                    <div class="info-value" id="t-date">--</div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <div class="info-label">Volum Total</div>
+                    <div class="info-value"><span id="t-vol">--</span> m³</div>
+                </div>
+                <div>
+                    <div class="info-label">Specii</div>
+                    <div class="info-value" id="t-species">--</div>
+                </div>
+            </div>
+            <div id="mini-map"></div>
+        </div>
+        <h2><i class="fa-solid fa-cloud-sun-rain"></i> Analiză Context Meteo</h2>
+        <div class="meteo-box">
+            <div style="font-size: 0.9rem; color: #0369a1; margin-bottom: 10px;">
+                Condiții atmosferice istorice înregistrate în zona de start a transportului:
+            </div>
+            <div class="meteo-grid">
+                <div class="meteo-item">
+                    <i class="fa-solid fa-temperature-half"></i>
+                    <div id="m-temp" style="font-weight:bold;">-- °C</div>
+                </div>
+                <div class="meteo-item">
+                    <i class="fa-solid fa-wind"></i>
+                    <div id="m-wind" style="font-weight:bold;">-- km/h</div>
+                </div>
+                <div class="meteo-item">
+                    <i class="fa-solid fa-droplet"></i>
+                    <div id="m-rain" style="font-weight:bold;">-- mm</div>
+                </div>
+            </div>
+        </div>
+        <div id="conclusion-box" class="conclusion" style="background:#f1f5f9; color:#64748b;">
+            Se analizează datele...
+        </div>
+        <div class="footer-note">
+        Raport generat automat de platforma Storm Route.
+            <br>Sursă date: ZebraHack Data API & Open-Meteo API.        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="scripts/mock-api.js"></script>
+    <script src="scripts/transport-report.js"></script>
+</body>
+</html>

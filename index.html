@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Storm Route - Home</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;700&display=swap"
+            rel="stylesheet"/>
+        <link rel="stylesheet" href="styles/global.css"/>
+        <link rel="stylesheet" href="styles/index.css"/>
+    </head>
+    <body class="landing-body">
+        <div class="landing-overlay"></div>
+        <video autoplay muted loop playsinline class="video-bg">
+            <source src="assets/videos/bg_home.mp4" type="video/mp4"/>
+        </video>
+        <nav>
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-bolt"></i>STORM ROUTE
+            </a>
+            <input id="menu_toggle" type="checkbox"/>
+            <label class="menu_btn" for="menu_toggle"><span></span></label>
+            <div class="menu_box">
+                <a href="index.html" class="menu_item nav-active">HOME</a>
+                <a href="radar.html" class="menu_item">RADAR</a>
+                <a href="comparare.html" class="menu_item">COMPARARE</a>
+            </div>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-btn nav-active">HOME</a>
+                <a href="comparare.html" class="nav-btn">COMPARARE</a>
+                <a href="radar.html" class="nav-btn cta-radar">EXPLOREAZĂ
+                    <i class="fa-solid fa-arrow-right" style="margin-left: 5px"></i>
+                </a>
+            </div>
+        </nav>
+        <div class="landing-card">
+            <h1 class="landing-h1">
+                <i class="fa-solid fa-bolt" style="color: var(--accent)"></i>Storm Route
+            </h1>
+            <div class="subtitle">MONITORIZARE TRASEE & ALERTE METEO</div>
+            <div class="divider"></div>
+            <div class="doc-section">
+                <div class="doc-title">
+                    <i class="fa-solid fa-crosshairs"></i> Obiectiv & Use-Case
+                </div>
+                <p>
+                    Storm Route este un site de <strong>investigație digitală</strong> destinat
+                    monitorizării transporturilor de lemne (SUMAL 2.0). Aplicația transformă datele
+                    brute din baza de date a transporturilor în informații gata de analizat. 
+                    Se verifică automat fiecare aviz SUMAL 2.0, analizându-se condițiile meteo de drum
+                    pentru a detecta anomalii. Astfel, se oferă o imagine clară asupra riscurilor,
+                    ajutând utilizatorii să identifice:
+                </p>
+                <ul class="detail-list">
+                    <li>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Transporturi efectuate pe timp de <strong style="color:white">
+                            vreme extremă</strong>, cu risc de accidente.
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Activități <strong style="color:white">
+                            nocturne</strong> atipice.
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Diferențe de volum între companii<strong style="color:white">
+                            (modul comparator)</strong>.
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="doc-section">
+                <div class="doc-title">
+                    <i class="fa-solid fa-server"></i>Arhitectură & APIs
+                </div>
+                <p>
+                    Sistemul integrează două API distincte:
+                </p>
+                <div class="tech-box">
+                    <div class="tech-item">
+                        <div class="tech-head">
+                            <i class="fa-solid fa-database"></i> API #1: ZebraHack Data
+                        </div>
+                        <div class="tech-body">
+                            Este sursa principală de date. Sunt folosite endpoint-uri precum:
+                            <br><code>GET /companies</code> - căutare, <br><code>GET /routes</code>
+                            - geometrii GeoJSON pentru transporturi, volume și specii, <br><code>
+                            GET /insights</code> - analiză pe ore și specii.
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-head">
+                            <i class="fa-solid fa-cloud-bolt"></i> API #2: Open-Meteo
+                        </div>
+                        <div class="tech-body">
+                            Pentru fiecare transport se analizează meteo pe baza coordonatelor geografice,
+                            a datei și a orei. Dacă vântul e peste 20km/h sau ploaia peste 0.5mm, transportul
+                            este marcat cu <span style="color: red"><b>RISC RIDICAT</b></span>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-section">
+                <div class="doc-title">
+                    <i class="fa-solid fa-microchip"></i>Module Principale
+                </div>
+                <div class="features-grid-small">
+                    <div class="f-item">
+                        <i class="fa-solid fa-map"></i>
+                        <span><strong>Hartă LIVE:</strong> vizualizare geografică a rutelor</span>
+                    </div>
+                    <div class="f-item">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span><strong>Insights:</strong> grafice orare și top al speciilor</span>
+                    </div>
+                    <div class="f-item">
+                        <i class="fa-solid fa-code-compare"></i>
+                        <span><strong>Comparator:</strong> analiză prin comparație a două companii</span>
+                    </div>
+                    <div class="f-item">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span><strong>Raport:</strong> generare raport pentru fiecare companie și transport
+                        la cerere</span>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-section">
+                <div class="doc-title">
+                    <i class="fa-solid fa-shoe-prints"></i>Cum funcționează?
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <h3>Caută</h3>
+                        <p>Introdu numele companiei. Sistemul sugerează automat companii.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <h3>Explorează</h3>
+                        <p>Vezi traseele pe hartă. Poți selecta un punct de pe hartă pentru a investiga.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon"><i class="fa-solid fa-cloud"></i></div>
+                        <h3>Analizează</h3>
+                        <p>Markerele roșii indică vreme neprielnică.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <div class="step-icon"><i class="fa-solid fa-file-export"></i></div>
+                        <h3>Cere raport</h3>
+                        <p>Generează raportul pentru o companie sau un traseu.</p>
+                    </div>
+                </div>
+
+                </p>
+            </div>
+            <div class="doc-section" style="border-bottom: none">
+                <div class="doc-title">
+                    <i class="fa-solid fa-hand-holding-heart"></i> Etică & Limitări
+                </div>
+                <p style="font-size: 0.9rem; color: grey; font-style: italic;">
+                    Rezultatele indică doar un context de risc, nu o certitudine.
+                </p>
+            </div>
+            <div class="divider"></div>
+            <a href="radar.html" class="launch-btn">DESCHIDE RADARUL
+                <i class="fa-solid fa-arrow-right" style="margin-left: 5px"></i>
+            </a>
+            <footer style="margin-top: 30px; font-size: 0.7rem; color: var(--text-muted);">
+                &copy; 2025 STORM ROUTE
+            </footer>
+        </div>
+        <script src="scripts/nav.js"></script>
+        <script src="scripts/mock-api.js"></script>
+    </body>
+</html>

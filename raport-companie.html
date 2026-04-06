@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storm Route - Raport Companie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/report.css">
+</head>
+<body>
+    <div class="report-container">
+        <header>
+            <div class="logo"><i class="fa-solid fa-bolt"></i>STORM ROUTE</div>
+            <div class="report-meta">
+                <div id="report-id">Raport #---</div>
+                <div id="report-date">Data: --/--/----</div>
+            </div>
+        </header>
+
+        <h1 id="r-title">Raport Activitate</h1>
+        <div class="settings-used" id="settings-display">
+            Filtru: ... 
+        </div>
+        <div class="section">
+            <h2>1. Indicatori Cheie</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="val-vol">0</div>
+                    <div class="stat-label">Volum Total (m³)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="val-hour">--:00</div>
+                    <div class="stat-label">Oră de Vârf</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="val-specie">--</div>
+                    <div class="stat-label">Specie Dominantă</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. Concluzii & Analiză Risc</h2>
+            <div class="summary-box" id="r-summary">
+                Se generează...
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Tipar Orar de Activitate</h2>
+            <p style="font-size:0.85rem; color:#64748b; margin-bottom:15px;">
+                Distribuția volumelor transportate pe ore (00:00 - 23:00). <br>
+                <span style="display:inline-block; width:10px; height:10px; background:#ef4444; margin-right:5px;"></span> = Activitate Nocturnă (Risc)
+                <span style="display:inline-block; width:10px; height:10px; background:#38bdf8; margin-left:10px; margin-right:5px;"></span> = Activitate Diurnă
+            </p>
+            <div class="chart-wrapper" id="report-chart">
+                </div>
+            <div class="chart-axis">
+                <span>00:00</span>
+                <span>06:00</span>
+                <span>12:00</span>
+                <span>18:00</span>
+                <span>23:00</span>
+            </div>
+        </div>
+        <div class="section">
+            <h2>4. Detaliere pe specii</h2>
+            <table id="species-table">
+                <thead><tr><th>Specie</th><th>Volum (m³)</th><th>Procent</th></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="footer-note">
+            Raport generat automat de platforma Storm Route.
+            <br>Sursă date: ZebraHack Data API & Open-Meteo API.
+        </div>
+    </div>
+
+    <script src="scripts/config.js"></script>
+    <script src="scripts/mock-api.js"></script>
+    <script src="scripts/company-report.js"></script>
+</body>
+</html>

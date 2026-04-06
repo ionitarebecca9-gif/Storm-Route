@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storm Route - Comparator</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/radar.css">
+    <link rel="stylesheet" href="styles/comparare.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <i class="fa-solid fa-bolt"></i> STORM ROUTE
+        </a>
+        <input id="menu_toggle" type="checkbox" />
+        <label class="menu_btn" for="menu_toggle"><span></span></label>
+
+        <div class="menu_box">
+            <a href="index.html" class="menu_item">HOME</a>
+            <a href="radar.html" class="menu_item">RADAR</a>
+            <a href="comparare.html" class="menu_item nav-active">COMPARE</a>
+        </div>
+        <div class="nav-actions">
+            <a href="index.html" class="nav-btn">HOME</a>
+            <a href="comparare.html" class="nav-btn nav-active">COMPARARE </a>
+             <a href="radar.html" class="nav-btn cta-radar">
+                EXPLOREAZĂ<i class="fa-solid fa-arrow-right" style="margin-left:5px;"></i>
+            </a>
+        </div>
+    </nav>
+    <div id="app-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div id="view-compare" style="display: block;">
+                    <a href="index.html" style="text-decoration: none;">
+                        <button style="background: none; border: none; color: #888; cursor: pointer; margin-bottom: 20px; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+                            <i class="fa-solid fa-arrow-left"></i> ÎNAPOI LA RADAR
+                        </button>
+                    </a>
+                    <h2 style="margin-bottom: 15px; color:white;">COMPARATOR</h2>
+                    <div style="font-size:0.8rem; color:#94a3b8; margin-bottom:20px;">Analiză comparativă între doi operatori.</div>
+                    <div class="compare-inputs">
+                        <div style="position:relative; margin-bottom:10px;">
+                            <span style="position:absolute; left:10px; top:10px; color:#38bdf8; font-weight:bold;">A</span>
+                            <input type="text" id="comp-a-input" class="search-input" style="padding-left:30px; border-color:#38bdf8;" placeholder="Caută Firma A..." autocomplete="off">
+                            <div id="suggestions-a" class="suggestion-list"></div>
+                        </div>
+                        <div style="text-align:center; margin:5px 0; color:#666; font-size:0.8rem; font-weight:bold;">VS</div>
+                        <div style="position:relative; margin-bottom:15px;">
+                            <span style="position:absolute; left:10px; top:10px; color:#f97316; font-weight:bold;">B</span>
+                            <input type="text" id="comp-b-input" class="search-input" style="padding-left:30px; border-color:#f97316;" placeholder="Caută Firma B..." autocomplete="off">
+                            <div id="suggestions-b" class="suggestion-list"></div>
+                        </div>
+                        <button onclick="runComparison()" class="nav-btn cta-radar" style="width:100%; justify-content:center;">
+                            GENEREAZĂ COMPARAȚIA
+                        </button>
+                    </div>
+                    <div id="compare-loading" style="display:none; text-align:center; margin-top:20px; color:#ccc;">
+                        <i class="fa-solid fa-spinner fa-spin"></i> Se analizează datele...
+                    </div>
+                   <div id="compare-results" style="display:none; margin-top:20px;">
+                        <div class="compare-row">
+                            <div class="c-card c-blue">
+                                <div class="c-val" id="c-count-a">0</div>
+                                <div class="c-label">Nr. transporturi</div>
+                            </div>
+                            <div class="c-card c-orange">
+                                <div class="c-val" id="c-count-b">0</div>
+                                <div class="c-label">Nr. transporturi</div>
+                            </div>
+                        </div>
+                        <div class="compare-row">
+                            <div class="c-card">
+                                <div class="c-val-sm" id="c-vol-a">0 m³</div>
+                                <div class="c-label">Volum total</div>
+                            </div>
+                            <div class="c-card">
+                                <div class="c-val-sm" id="c-vol-b">0 m³</div>
+                                <div class="c-label">Volum total</div>
+                            </div>
+                        </div>
+                        <div class="compare-row">
+                            <div class="c-card">
+                                <div class="c-val-sm" id="c-spec-a">-</div>
+                                <div class="c-label">Specie predominantă</div>
+                            </div>
+                            <div class="c-card">
+                                <div class="c-val-sm" id="c-spec-b">-</div>
+                                <div class="c-label">Specie predominantă</div>
+                            </div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding:15px; border-radius:8px; margin-top:20px;">
+                            <h3 style="font-size:0.9rem; color:white; margin-bottom:5px;">CONCLUZIE COMPARATIVĂ</h3>
+                            <p id="compare-summary" style="font-size:0.85rem; color:#ccc; line-height:1.4;">...</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.65rem; color: #666; text-align: center; line-height: 1.4;">
+                    <i class="fa-solid fa-scale-balanced"></i> <strong>NOTĂ</strong><br>
+                    Datele comparate sunt strict informative.
+                </div>
+            </div>
+        </aside>
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+    <script src="scripts/compare.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/mock-api.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/map.js"></script>
+    <script src="scripts/search.js"></script>
+    <script src="scripts/radar.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

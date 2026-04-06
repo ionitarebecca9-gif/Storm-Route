@@ -1,0 +1,264 @@
+body{
+    font-family: 'Inter', sans-serif;
+    background: white;
+    color: #0f172a;
+    margin: 0;
+    padding: 40px;
+}
+
+/* cardul cu continut */
+.report-container{
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+header{
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.report-meta{
+    text-align: right;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.transport-id{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: #0f172a;
+    margin: 0;
+}
+/* vreme ok sau nu */
+.risk-badge{
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+/* rezumat */
+.grid-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:30px;
+    margin-bottom: 30px;
+}
+
+.info-box{
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.info-label{
+    font-size: 0.8rem;
+    color:#64748b;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.info-value{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+/* meteo */
+.meteo-box{
+    background: #f0f9f9;
+    border: 1px solid #bae6fd;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.meteo-grid{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.meteo-item i{
+    font-size: 1.5rem;
+    color: #0284c7;
+    margin-bottom: 5px;
+}
+/* harta interactiva */
+#mini-map{
+    height: 250px;
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    margin-bottom: 0px;
+}
+/* concluzia */
+.conclusion{
+    padding: 20px;
+    border-radius: 8px;
+    line-height: 1.6;
+}
+
+.conclusion-danger{
+    background: #fef2f2;
+    border: 1px solid #ef4444;
+    color: #991b1b;
+}
+
+.conclusion-safe{
+    background: #ecfdf5;
+    border: 1px solid #10b981;
+    color: #064e3b;
+}
+/* footer */
+.footer-note{
+    margin-top: 40px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-align: center;
+}
+
+h1{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin: 0 0 5px 0;
+    color:#0f172a;
+}
+
+.settings-used { 
+    background: #f1f5f9; 
+    display: inline-block; 
+    padding: 5px 10px; 
+    border-radius: 4px; 
+    font-size: 0.8rem; 
+    color: #475569; 
+    margin-bottom: 30px; 
+    border: 1px solid #cbd5e1; 
+}
+
+.section { 
+    margin-bottom: 40px; 
+}
+
+h2 { 
+    font-size: 1.2rem; 
+    border-left: 4px solid #10b981; 
+    padding-left: 15px; 
+    margin-bottom: 20px; 
+    color: #334155; 
+}
+/* rezumat */
+.stats-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    margin-bottom: 20px; 
+}
+.stat-card { 
+    background: #f8fafc; 
+    padding: 15px; 
+    border-radius: 6px; 
+    border: 1px solid #e2e8f0; 
+    text-align: center; 
+}
+.stat-value { 
+    font-size: 1.8rem; 
+    font-weight: bold; 
+    color: #10b981; 
+    font-family: 'Oswald'; 
+}
+.stat-label { 
+    font-size: 0.8rem; 
+    color: #64748b; 
+    text-transform: uppercase; 
+}
+/* chart */
+.chart-wrapper{
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 10px;
+}
+
+.chart-bar { 
+    flex: 1; 
+    background: #38bdf8; 
+    opacity: 0.8; 
+    border-radius: 2px 2px 0 0; 
+    position: relative; 
+    min-height: 2px; 
+}
+.chart-axis { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 0.7rem; 
+    color: #94a3b8; 
+}
+.bar-danger { 
+    background-color: #ef4444 !important; 
+}
+
+.summary-box { 
+    background: #ecfdf5; 
+    border: 1px solid #10b981; 
+    padding: 20px; 
+    border-radius: 6px; 
+    color: #064e3b; 
+    line-height: 1.6; 
+    margin-top: 20px; 
+}
+/* tabel */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 10px; 
+    font-size: 0.9rem; 
+}
+th { 
+    text-align: left; 
+    padding: 10px; 
+    border-bottom: 2px solid #e2e8f0; 
+    color: #64748b; 
+}
+td { 
+    padding: 10px; 
+    border-bottom: 1px solid #e2e8f0; 
+}
+
+.risk-badge{
+    margin-top: 25px;
+}
+/* responsive */
+@media(max-width:900px)
+{
+    body{
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,251 @@
+#app-wrapper
+{
+    display: flex;
+    height: 100vh;
+    padding-top: 70px;
+}
+/* panou lateral cu comapnii si transp */
+.sidebar{
+    width: 400px;
+    background: rgba(2, 6, 23, 1);
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(20px);
+    z-index: 500;
+}
+
+.sidebar-content{
+    padding: 25px;
+    overflow-y: auto;
+    flex: 1;
+}
+/* harta */
+#map-container{
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+#map{
+    width: 100%;
+    height: 100%;
+    background: #0f172a;
+}
+/* cauatrea */
+.search-box{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-input{
+    width: 100%;
+    padding: 12px 15px;
+    padding-left: 40px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--bg--glass);
+    border-radius: 6px;
+    color: white;
+    font-family: "Inter", sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-input:focus{
+    border-color: var(--accent);
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+.search-icon{
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+/* companii */
+.company-result-item{
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.company-result-item:hover{
+    background: rgba(56, 189, 248, 0.1);
+    padding-left: 15px;
+}
+
+.company-name{
+    font-weight: 600;
+    color: white;
+}
+
+.company-meta{
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+/* transporturi */
+.transport-item{
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: 0.2s;
+    border-left: 3px solid transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transport-item:hover{
+    background: rgba(255,255,255,0.05);
+}
+
+.transport-item.active{
+    background: rgba(56, 189, 248, 0.1);
+    border-left-color: var(--accent);
+}
+/* detalii */
+.chart-container{
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 100px;
+    margin: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 5px;
+}
+
+.chart-bar{
+    flex: 1;
+    background: var(--accent);
+    opacity: 0.6;
+    transition: 0.3s;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+}
+
+.chart-bar:hover{
+    opacity: 1;
+    transform: scaleY(1.1);
+    transform-origin: bottom;
+    background: white !important;
+}
+
+.chart-bar::after{
+    content: attr(data-val);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    color: #666;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.chart-bar:hover::after{
+    opacity: 1;
+}
+
+.stat-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.progress-bg{
+    background: rgba(255,255,255,0.1);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.progress-fill{
+    height: 100%;
+    background: var(--primary);
+    width: 0%;
+    transition: width 1s;
+}
+/* vreme */
+.weather-panel{
+    background: linear-gradient(180deg, rgba(56, 189, 248,0.1), transparent);
+    border: 1px solid var(--border-glass);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.temp-display{
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-family: "Oswald", sans-serif;
+    margin: 10px 0;
+    line-height: 1;
+}
+
+.status-badge{
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+.bg-danger{
+    background: rgba(239, 68,68,0.2);
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.bg-safe{
+    background: rgba(16,185,129,0.2);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+
+}
+
+.bg-loading{
+    background: rgba(255,255,255,0.1);
+    color: #ccc;
+    border: 1px solid #555;
+}
+
+.data-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 1rem;
+}
+
+.data-row span:last-child{
+    font-family: monospace;
+    font-weight: 600;
+    color: white;
+}
+/* responsive */
+@media(max-width:900px)
+{
+    #app-wrapper{
+        flex-direction: column;
+    }
+    .sidebar{
+        width: 100%;
+        height: 45%;
+        order: 2;
+    }
+    #map-container{
+        height: 55%;
+        order: 1;
+    }
+}
